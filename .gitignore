@@ -1,0 +1,17 @@
+# Ignore folders and db in repo
+
+env
+
+__pycache__
+
+site.db
+
+UIdev
+
+.pytest_cache
+
+.coverage
+
+.vscode
+
+
