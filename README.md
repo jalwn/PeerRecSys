@@ -21,18 +21,20 @@ The system pairs a user with a deficiency in a certain skill with another user t
 
 1. Install python3 from https://www.python.org/downloads/windows/
 
-2. pip3 comes with python3 installation
+2. Add python and pip3 to path https://datatofish.com/add-python-to-windows-path/
 
-3. open cmd and go to project folder and run the following commands
+3. pip3 comes with python3 installation
 
-4. python -m venv env
+4. open cmd and go to project folder and run the following commands
 
-5. env/Scripts/activate.bat
+5. python -m venv env
 
-6. pip install -r requirements.txt
+6. env/Scripts/activate.bat
 
-7. python flaskblog.py
+7. pip install -r requirements.txt
 
-8. to deactivate venv type deactivate on cmd
+8. python flaskblog.py
+
+9. to deactivate venv type deactivate on cmd
 
 
