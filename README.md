@@ -29,7 +29,7 @@ The system pairs a user with a deficiency in a certain skill with another user t
 
 5. python -m venv env
 
-6. env/Scripts/activate.bat
+6. env\Scripts\activate.bat
 
 7. pip install -r requirements.txt
 
