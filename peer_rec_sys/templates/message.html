@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!--    <div class="sent-m">-->
+<!--        {% for message in sent_messages %}-->
+<!--            <p>{{message}}</p>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+
+<!--    <div class="recieved-m">-->
+<!--        {% for message in recieved_messages %}-->
+<!--            <p>{{message}}</p>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+    <h1>Chat with {{ recipient }}</h1>
+    <div class="message-box">
+        {% for message in messages %}
+        {% if message.recipient.username == recipient %}
+        <div class="recieved">
+            <p>{{ message }}</p>
+        </div>
+        {% else %}
+        <div class="mysent">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {% if form.message.errors %}
+                <ul class="invalid">
+                    {% for error in form.message.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+        {% endif %}
+        {{ form.message() }}
+        {{ form.submit() }}
+    </form>
+
+{% endblock content %}

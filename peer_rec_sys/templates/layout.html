@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    &lt;!&ndash;    Material CSS&ndash;&gt;-->
+    <!-- My style CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<!--    {% if title=='Tags' %}-->
+<!--        <script src="{{url_for('static', filename='tags.js')}}"></script>-->
+<!--    {% endif %}-->
+    {% if title %}
+        <title>Scholars - {{title}}</title>
+    {% else %}
+        <title>Scholars</title>
+    {% endif %}
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Left-Sidebar - Menu Options -->
+        <div class="left-sidebar">
+            <div class="sidebar">
+                <h2>Sidebar</h2>
+                <ul>
+                    <li><a href="{{ url_for('main.home') }}"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="{{ url_for('users.profile') }}"><i class="fas fa-user"></i>Profile</a></li>
+                    <li><a href="{{ url_for('users.tags') }}"><i class="fas fa-project-diagram"></i>Tags</a></li>
+                    <li><a href="{{ url_for('users.friends') }}"><i class="fas fa-address-book"></i>Friends</a></li>
+                    {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('users.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('users.register') }}"><i class="fas fa-address-card"></i>Register</a></li>
+                    <li><a href="{{ url_for('users.login') }}"><i class="fas fa-sign-in-alt"></i></i>Login</a></li>
+                    {% endif %}
+<!--                <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>-->
+                </ul> 
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="main">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <script>
+                        var messages = {{ messages | safe }};
+                        for (var i=0; i<messages.length; i++) {
+                        alert(messages[i]);
+                        }
+                    </script>
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+        <div class="right-sidebar"></div>
+    </div>
+<!--    &lt;!&ndash;    Material JS&ndash;&gt;-->
+<!--    {% if title=='Tags' %}-->
+<!--    <script rel="text/javascript" src="{{url_for('static', filename='materialize.min.js')}}"></script>-->
+<!--    {% endif %}-->
+</body>
+</html>

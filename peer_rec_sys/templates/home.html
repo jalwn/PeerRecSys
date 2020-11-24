@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {% if list_empty %}
+    <h1>Recommendations are empty</h1>
+    {% else %}
+        <div class="card">
+            <div class="profile-img"></div>
+            <p>{{rec_peer.username}}</p>
+            <p>{{rec_peer.email}}</p>
+
+            <!-- Interests loop -->
+
+            <p class="strength attributes">
+                {% for assoc in rec_peer.tags %}
+                    {% if assoc.tag_type==True %}
+                    <span class="tag">#{{assoc.tag.tagname}}</span>
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <p class="weakness attributes">
+                {% for assoc in rec_peer.tags %}
+                    {% if assoc.tag_type==False %}
+                    <span class="tag">#{{assoc.tag.tagname}}</span>
+                    {% endif %}
+                {% endfor %}
+            </p>
+
+            <!-- Interests loop END-->
+
+            <p>{{rec_peer.bio}}</p>
+            <form method="POST" action="" class="like_form" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {{ form.like()}}
+                <li><a href="#"><i class="fas fa-user-circle"></i></a></li>
+                {{ form.ignore() }}
+    <!--            <li><a href="#"><i class="fas fa-heart"></i></a></li>-->
+    <!--            <li><a href="#"><i class="far fa-times-circle"></i></a></li>-->
+            </form>
+        </div>
+
+        <style>
+            .wrapper .main .card .profile-img{
+            width: 100%;
+            height: 400px;
+            background-image: url("{{image_file}}");
+            background-size: 100% 100%;
+            }
+    </style>
+    {% endif %}
+
+{% endblock content %}
+

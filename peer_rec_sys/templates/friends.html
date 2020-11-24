@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!--    <form class="scroll" action="" method="post">-->
+<!--        {% for assoc in friendlist %}-->
+<!--        <button class="button-friend" name="button" value="{{assoc.friend.id}}">-->
+<!--            <img src="{{url_for('static', filename='profile_pics/' + assoc.friend.image_file)}}" alt="avatar">-->
+<!--            <div class="username">-->
+<!--                <label>{{assoc.friend.username}}</label>-->
+<!--            </div>-->
+<!--        </button>-->
+<!--        {% endfor %}-->
+<!--    </form>-->
+    <div class="scroll">
+        {% for assoc in friendlist %}
+        <a class="button-friend" href="{{ url_for('users.send_message', recipient_id=assoc.friend.id) }}">
+            <img src="{{url_for('static', filename='profile_pics/' + assoc.friend.image_file)}}" alt="avatar">
+            <div class="username">
+                <label>{{assoc.friend.username}}</label>
+            </div>
+        </a>
+        {% endfor %}
+
+
+    </div>
+
+    <style>
+        .button-friend{
+            display: flex;
+            margin: 20px;
+        }
+
+        .button-friend > * {
+            margin: 0px 10px;
+        }
+        .username{
+            width: 100px;
+            height: 50px;
+        }
+        img {
+            width: 50px;
+            border-radius: 50%;
+        }
+    </style>
+
+{% endblock content %}
+

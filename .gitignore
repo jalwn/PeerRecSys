@@ -2,16 +2,12 @@
 
 env
 
-__pycache__
-
 site.db
 
-UIdev
+.idea
 
-.pytest_cache
+__pycache__/
 
-.coverage
-
-.vscode
+peer_rec_sys/__pycache__/
 
 
