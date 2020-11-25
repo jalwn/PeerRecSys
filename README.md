@@ -33,7 +33,13 @@ The system pairs a user with a deficiency in a certain skill with another user t
 
 7. pip install -r requirements.txt
 
-8. python flaskblog.py
+8. add the following to windows environmental variables (same way as in step 2)
+ - variable name: SECRET_KEY ,  value: 6367bd0b7d25c57d19b2f68a79897059 (or generate your own)
+ - variable name: SQLALCHEMY_DATABASE_URI , value: sqlite:///site.db?check_same_thread=False
+ 
+9. create the database https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/ ( import app from peer_rec_sys and do app.app_context().push before create_all() )
+
+8. enter command python run.py
 
 9. to deactivate venv type deactivate on cmd
 
