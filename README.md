@@ -37,7 +37,7 @@ The system pairs a user with a deficiency in a certain skill with another user t
  - variable name: SECRET_KEY ,  value: 6367bd0b7d25c57d19b2f68a79897059 (or generate your own)
  - variable name: SQLALCHEMY_DATABASE_URI , value: sqlite:///site.db?check_same_thread=False
  
-9. create the database https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/ ( import app from peer_rec_sys and do app.app_context().push before create_all() )
+9. create the database https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/ ( import app from peer_rec_sys and do app.app_context().push() before db.create_all(), import db from peer_rec_sys.models )
 
 8. enter command python run.py
 
